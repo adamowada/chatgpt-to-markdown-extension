@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "HTML to Markdown",
+  "version": "1.0",
+  "description": "Converts selected HTML elements to Markdown and either copies or downloads them.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "64": "assets/icon64.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "permissions": ["activeTab", "clipboardWrite"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
