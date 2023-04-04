@@ -2,6 +2,7 @@ async function copyToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
     console.log('Text copied to clipboard');
+    document.getElementById('copyButton').innerText = "Copied!"
   } catch (err) {
     console.error('Failed to copy text: ', err);
   }
@@ -15,6 +16,7 @@ function downloadMarkdown(text) {
   link.download = 'content.md';
   link.click();
   URL.revokeObjectURL(url);
+  document.getElementById('downloadButton').innerText = "Downloaded!"
 }
 
 document.getElementById('copyButton').addEventListener('click', async () => {
