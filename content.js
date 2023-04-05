@@ -47,9 +47,7 @@ function getMarkdown(nodeList) {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "copy" || request.action === "download") {
     const elements = getSelectedElements();
-    console.log(elements);
     const markdown = getMarkdown(elements);
-    console.log(markdown);
     sendResponse({ markdown });
   }
 });
