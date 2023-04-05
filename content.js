@@ -15,7 +15,7 @@ function getMarkdown(nodeList) {
       }
       return element.outerText;
     })
-    .join("\n\n**\n\n");
+    .join("\n\n");
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
