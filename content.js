@@ -10,8 +10,11 @@ function getMarkdown(nodeList) {
       if (i % 2 == 0) {
         return "## " + element.outerText; 
       }
+      let responseString = "";
       for (const node of element.childNodes[0].childNodes) {
-        console.log(node.outerText);
+        if (node.localName === "pre") {
+          responseString += `\`\`\`${node.childNodes[0].childNodes[0]}`
+        }
       }
       return element.outerText;
     })
