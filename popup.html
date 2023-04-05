@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <style>
-      button {
-        display: block;
-        margin: 10px;
+      /* General button styles */
+      .button {
+        display: inline-block;
+        font-size: 24px;
+        padding: 12px 24px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin: auto;
+        width: 100%;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+  
+      /* Hover effect */
+      .button:hover {
+        background-color: #45a049;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+  
+      /* Active (pressed) effect */
+      .button:active {
+        background-color: #3d8a40;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        transform: translateY(2px);
+      }
+
+      body {
+        margin: 0;
+        width: 15rem;
+        background-color: #3d8a40;
       }
     </style>
   </head>
   <body>
-    <button id="copyButton">Copy</button>
-    <button id="downloadButton">Download</button>
-    <!-- <a href="https://www.flaticon.com/free-icons/business-and-finance" title="business and finance icons">Business and finance icons created by Freepik - Flaticon</a> -->
+    <button id="copyButton" class="button">📋 Copy</button>
+    <button id="downloadButton" class="button">💾 Download</button>
     <script src="popup.js"></script>
   </body>
 </html>
