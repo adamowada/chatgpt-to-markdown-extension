@@ -19,12 +19,12 @@ function getMarkdown(nodeList) {
             "```" +
             "\n\n";
         } else if (node.localName === "ol") {
-          for (let i = 1; 1 <= node.childNodes.length; i++){
-            
+          for (let i = 0; i < node.childNodes.length; i++){
+            responseString += `${i+1}. ` + node.childNodes[i].innerText + "\n\n";
           }
-          for (const li of node.childNodes) {
-            responseString += "1. " + li.innerText + "\n\n";
-          }
+          // for (const li of node.childNodes) {
+          //   responseString += "1. " + li.innerText + "\n\n";
+          // }
         } else if (node.localName === "ul") {
           for (const li of node.childNodes) {
             responseString += "- " + li.innerText + "\n\n";
