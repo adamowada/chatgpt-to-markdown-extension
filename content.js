@@ -6,7 +6,13 @@ function getSelectedElements() {
 
 function getMarkdown(nodeList) {
   return Array.from(nodeList)
-    .map((element) => element.outerText)
+    .map((element, i) => {
+      if (i % 2 == 0) {
+        return "## " + element.outerText; 
+      }
+      
+      return element.outerText;
+    })
     .join("\n\n**\n\n");
 }
 
