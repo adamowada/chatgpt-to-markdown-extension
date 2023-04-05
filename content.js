@@ -6,7 +6,7 @@ function getMarkdown(nodeList) {
   return Array.from(nodeList)
     .map((element, i) => {
       if (i % 2 == 0) {
-        return "## " + element.outerText; 
+        return "## Prompt: " + element.outerText; 
       }
       let responseString = "";
       for (const node of element.childNodes[0].childNodes) {
@@ -16,7 +16,7 @@ function getMarkdown(nodeList) {
 ${node.childNodes[0].childNodes[1].innerText}
 \`\`\`` + "\n\n";
         } else {
-          responseString += node.innerText + "\n\n";
+          responseString += node.innerHTML + "\n\n";
         }
       }
       return responseString;
