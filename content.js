@@ -2,38 +2,45 @@ function getSelectedElements() {
   return document.querySelectorAll(".min-h-\\[20px\\]");
 }
 
+function formatMarkdown(element, index) {
+  if (index % 2 === 0) {
+    return `## Prompt: ${element.outerText}`;
+  }
+
+  const responseArray = [];
+
+  for (const node of element.childNodes[0].childNodes) {
+    switch (node.localName) {
+      case "pre":
+        const code = node.childNodes[0].childNodes[0].childNodes[0].innerText;
+        const language = node.childNodes[0].childNodes[1].innerText;
+        responseArray.push(`\`\`\`${code}\n${language}\`\`\``);
+        break;
+
+      case "ol":
+      case "ul":
+        const bullet = node.localName === "ol" ? `${node.start}. ` : "- ";
+        node.childNodes.forEach((li) => {
+          responseArray.push(`${bullet}${li.innerText}`);
+        });
+        break;
+
+      case "table":
+        responseArray.push(node.outerHTML);
+        break;
+
+      default:
+        responseArray.push(node.innerHTML);
+        break;
+    }
+  }
+
+  return responseArray.join("\n\n");
+}
+
 function getMarkdown(nodeList) {
   return Array.from(nodeList)
-    .map((element, i) => {
-      if (i % 2 == 0) {
-        return "## Prompt: " + element.outerText;
-      }
-      let responseString = "";
-      for (const node of element.childNodes[0].childNodes) {
-        if (node.localName === "pre") {
-          responseString +=
-            "```" +
-            node.childNodes[0].childNodes[0].childNodes[0].innerText +
-            "\n" +
-            node.childNodes[0].childNodes[1].innerText +
-            "```" +
-            "\n\n";
-        } else if (node.localName === "ol") {
-          for (const li of node.childNodes) {
-            responseString += `${node.start}. ` + li.innerText + "\n\n";
-          }
-        } else if (node.localName === "ul") {
-          for (const li of node.childNodes) {
-            responseString += "- " + li.innerText + "\n\n";
-          }
-        } else if (node.localName === "table") {
-          responseString += node.outerHTML + "\n\n";
-        } else {
-          responseString += node.innerHTML + "\n\n";
-        }
-      }
-      return responseString;
-    })
+    .map(formatMarkdown)
     .join("\n\n");
 }
 
