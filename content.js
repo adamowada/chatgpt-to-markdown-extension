@@ -13,7 +13,11 @@ function getMarkdown(nodeList) {
       let responseString = "";
       for (const node of element.childNodes[0].childNodes) {
         if (node.localName === "pre") {
-          responseString += `\`\`\`${node.childNodes[0].childNodes[0]}`
+          responseString += `\n\`\`\`${node.childNodes[0].childNodes[0].childNodes[0].innerText}
+          ${node.childNodes[0].childNodes[1].innerText}
+          \`\`\`\n`
+        } else {
+          responseString += node.innerText;
         }
       }
       return element.outerText;
