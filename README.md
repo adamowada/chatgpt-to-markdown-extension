@@ -1,8 +1,8 @@
 # ChatGPT to Markdown Chrome Extension
 
-Easily copy the contents of a ChatGPT chat and past the markdown version of it wherever you'd like.
+Easily copy the contents of a ChatGPT chat as markdown and paste wherever you'd like.
 
-Or you can easily download the ChatGPT chat into a markdown file.
+Or download the chat into a markdown file with a single click!
 
 ## Features
 
