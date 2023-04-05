@@ -61,3 +61,15 @@ print(squares)  # Output: [1, 4, 9, 16, 25]
 
 Keep in mind that lambda functions are limited in their functionality compared to regular functions defined with <code>def</code>. They are best used for simple operations or as arguments to functions like <code>map()</code>, <code>filter()</code>, and <code>sorted()</code>.
 
+## Prompt: Please make an example table
+
+Sure, here's an example table:
+
+<table><thead><tr><th>Fruit</th><th>Quantity</th><th>Price per Unit</th></tr></thead><tbody><tr><td>Apples</td><td>10</td><td>$1.00</td></tr><tr><td>Bananas</td><td>5</td><td>$0.50</td></tr><tr><td>Oranges</td><td>8</td><td>$0.75</td></tr><tr><td>Pineapples</td><td>2</td><td>$2.50</td></tr><tr><td>Kiwis</td><td>12</td><td>$0.40</td></tr></tbody></table>
+
+In this example table, we have five rows, each representing a different type of fruit. The first column lists the name of the fruit, the second column lists the quantity of that fruit available, and the third column lists the price per unit of that fruit. We can use this table to calculate the total cost of purchasing these fruits, for example.
+
+
+
+In this example table, we have five rows, each representing a different type of fruit. The first column lists the name of the fruit, the second column lists the quantity of that fruit available, and the third column lists the price per unit of that fruit. We can use this table to calculate the total cost of purchasing these fruits, for example.
+

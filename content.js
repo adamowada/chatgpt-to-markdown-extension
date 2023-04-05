@@ -26,6 +26,8 @@ function getMarkdown(nodeList) {
           for (const li of node.childNodes) {
             responseString += "- " + li.innerText + "\n\n";
           }
+        } else if (node.localName === "table") {
+          responseString += node.outerHTML + "\n\n";
         } else {
           responseString += node.innerHTML + "\n\n";
         }
