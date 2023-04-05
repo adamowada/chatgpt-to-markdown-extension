@@ -12,14 +12,14 @@ function getMarkdown(nodeList) {
       for (const node of element.childNodes[0].childNodes) {
         if (node.localName === "pre") {
           responseString += 
-`\`\`\`${node.childNodes[0].childNodes[0].childNodes[0].innerText}
-${node.childNodes[0].childNodes[1].innerText}
-\`\`\`` + "\n\n";
-        // } else if (node.localName === "ol") {
-        //   for (const li of )
-        //   responseString += node.innerHTML + "\n\n";
-        // } else {
-        } else {  
+"\`\`\`" + node.childNodes[0].childNodes[0].childNodes[0].innerText + "\n" + node.childNodes[0].childNodes[1].innerText
+\`\`\`" + "\n\n";
+        } else if (node.localName === "ol") {
+          for (const li of node.childNodes) {
+            responseString += "1. " + li.innerText;
+          }
+        } else {
+        // } else {  
           responseString += node.innerHTML + "\n\n";
         }
       }
@@ -31,7 +31,9 @@ ${node.childNodes[0].childNodes[1].innerText}
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "copy" || request.action === "download") {
     const elements = getSelectedElements();
+    console.log(elements)
     const markdown = getMarkdown(elements);
+    console.log(markdown);
     sendResponse({ markdown });
   }
 });
