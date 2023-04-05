@@ -10,7 +10,9 @@ function getMarkdown(nodeList) {
       if (i % 2 == 0) {
         return "## " + element.outerText; 
       }
-      
+      for (const node of element.childNodes[0].childNodes) {
+        console.log(node.outerText);
+      }
       return element.outerText;
     })
     .join("\n\n**\n\n");
