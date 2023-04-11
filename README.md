@@ -28,10 +28,14 @@ Your extension should now be installed, and you can use it by clicking the exten
 
 ## Usage
 
-1. Start a conversation with ChatGPT. There must be at least 1 message/response
+1. Start a conversation with ChatGPT. There must be at least 1 prompt/response
 
 1. Click the green square icon for the extension
 
 1. Click "Copy" to copy the current conversation in markdown format to your clipboard
 
 1. Click "Download" to download the current conversation in markdown format as an .md file to your default download folder
+
+## Dev Log
+
+- 1.1.0: Added form to choose file name on `download`

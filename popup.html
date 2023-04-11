@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <style>
       /* General button styles */
       .button {
         display: inline-block;
         font-size: 24px;
         padding: 12px 24px;
-        background-color: #4CAF50;
+        background-color: #4caf50;
         color: white;
         text-align: center;
         text-decoration: none;
@@ -20,30 +20,77 @@
         font-weight: bold;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
       }
-  
+
       /* Hover effect */
       .button:hover {
         background-color: #45a049;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
-  
+
       /* Active (pressed) effect */
       .button:active {
         background-color: #3d8a40;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+          0 3px 10px 0 rgba(0, 0, 0, 0.19);
         transform: translateY(2px);
+      }
+
+      /* General input styles */
+      input[type="text"] {
+        display: block;
+        font-size: 24px;
+        padding: 10.5px 3px;
+        background-color: white;
+        color: #4caf50;
+        text-align: right;
+        text-decoration: none;
+        border: none;        
+        width: 100%;
+        box-sizing: border-box;
+        transition: all 0.3s;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(147, 147, 147, 0.2);
+      }
+
+      /* Focus effect */
+      input[type="text"]:focus {
+        outline: none;
+        border: none;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        border: 2px solid #ffffff;
+      }
+
+      span {
+        font-size: 24px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        margin: 0 3px;
       }
 
       body {
         margin: 0;
-        width: 15rem;
-        background-color: #3d8a40;
+        width: 18rem;
+        background-color: #4caf50;
       }
     </style>
   </head>
   <body>
     <button id="copyButton" class="button">📋 Copy</button>
-    <button id="downloadButton" class="button">💾 Download</button>
+    <form id="fileNameForm">
+      <label>
+        <input type="text" name="fileName" id="fileName" />
+        <span>.md</span>
+      </label>
+      <button id="downloadButton" class="button" type="submit">
+        💾 Download
+      </button>
+    </form>
     <script src="popup.js"></script>
   </body>
 </html>

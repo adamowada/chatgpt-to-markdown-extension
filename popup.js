@@ -21,16 +21,18 @@ async function copyToClipboard(text) {
   }
 }
 
-function downloadMarkdown(text) {
+function downloadMarkdown(text, fileName) {
   const blob = new Blob([text], { type: "text/markdown" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `chatgpt_${getCurrentDateTime()}.md`;
+  link.download = `${fileName}.md`;
   link.click();
   URL.revokeObjectURL(url);
   document.getElementById("downloadButton").innerText = "☑️ Downloaded!";
 }
+
+document.getElementById("fileName").value = getCurrentDateTime();
 
 document.getElementById("copyButton").addEventListener("click", async () => {
   chrome.runtime.sendMessage({ action: "copy" }, async (response) => {
@@ -38,8 +40,9 @@ document.getElementById("copyButton").addEventListener("click", async () => {
   });
 });
 
-document.getElementById("downloadButton").addEventListener("click", () => {
+document.getElementById("fileNameForm").addEventListener("submit", (e) => {
+  e.preventDefault();
   chrome.runtime.sendMessage({ action: "download" }, (response) => {
-    downloadMarkdown(response.markdown);
+    downloadMarkdown(response.markdown, e.target.fileName.value);
   });
-});
+})
