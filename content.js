@@ -4,7 +4,7 @@ function getSelectedElements() {
 
 function formatMarkdown(element, index) {
   if (index % 2 === 0) {
-    return `## Prompt: ${element.outerText}`;
+    return `## Prompt:\n${element.outerText}\n\n## Response:`;
   }
 
   const responseArray = [];

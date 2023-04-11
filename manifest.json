@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "ChatGPT to Markdown",
-  "version": "1.0",
-  "description": "Converts selected HTML elements in ChatGPT conversation to Markdown and either copies or downloads them.",
+  "version": "1.0.0",
+  "description": "Converts a ChatGPT conversation to markdown and either copies to clipboard or downloads as .md file.",
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
